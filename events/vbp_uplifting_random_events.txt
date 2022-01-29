@@ -1,0 +1,1912 @@
+namespace = vbp_uplifting_random
+
+### TECHNOLOGICAL ENLIGHTENMENT ###
+
+# Xenophobe Primitives (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2010
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			OR = {
+				has_mission = vbp_tomb_technological_enlightenment
+				has_mission = vbp_machine_framework_upgrade
+				has_mission = vbp_hive_enlightenment_0
+				has_mission = vbp_hive_enlightenment_1
+				has_mission = vbp_hive_enlightenment_2
+			}
+			mission_progress > 0.2
+		}
+		owner = {
+			OR = {
+				has_ethic = "ethic_xenophobe"
+				has_ethic = "ethic_fanatic_xenophobe"
+			}
+		}
+		NOT = {
+			owner = {
+				has_relation_flag = {
+					who = root.observation_outpost_owner
+					flag = xenophobe_enlightenment
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+
+		modifier = {
+			factor = 0.7
+			owner = { has_ethic = "ethic_fanatic_xenophobe" }
+		}
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2011 }
+		}
+	}
+}
+
+# Xenophobe Primitives
+country_event = {
+	id = vbp_uplifting_random.2011
+	title = "observation.2011.name"
+	desc = "observation.2011.desc"
+	desc = {
+		exclusive_trigger = {
+			from.owner = { is_gestalt = yes }
+		}
+		text = observation.2011.desc.gestalt
+	}
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			observation_outpost = { add_mission_progress = -0.2 }
+			owner = {
+				set_relation_flag = {
+					who = ROOT
+					flag = xenophobe_enlightenment
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "UNFORTUNATE"
+		tooltip = {
+			FROM = {
+				observation_outpost = { add_mission_progress = -0.2 }
+			}
+		}
+	}
+}
+
+# Xenophile Primitives (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2012
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			OR = {
+				has_mission = vbp_tomb_technological_enlightenment
+				has_mission = vbp_machine_framework_upgrade
+				has_mission = vbp_hive_enlightenment_0
+				has_mission = vbp_hive_enlightenment_1
+				has_mission = vbp_hive_enlightenment_2
+			}
+			mission_progress > 0.2
+		}
+		owner = {
+			OR = {
+				has_ethic = "ethic_xenophile"
+				has_ethic = "ethic_fanatic_xenophile"
+			}
+		}
+		NOT = {
+			owner = {
+				has_relation_flag = {
+					who = root.observation_outpost_owner
+					flag = xenophile_enlightenment
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+
+		modifier = {
+			factor = 0.7
+			owner = { has_ethic = "ethic_fanatic_xenophile" }
+		}
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2013 }
+		}
+	}
+}
+
+# Xenophile Primitives
+country_event = {
+	id = vbp_uplifting_random.2013
+	title = "observation.2013.name"
+	desc = "observation.2013.desc"
+	desc = {
+		exclusive_trigger = {
+			from.owner = { is_gestalt = yes }
+		}
+		text = observation.2013.desc.gestalt
+	}
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			observation_outpost = { add_mission_progress = 0.2 }
+			owner = {
+				set_relation_flag = {
+					who = ROOT
+					flag = xenophile_enlightenment
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EXCELLENT"
+		tooltip = {
+			FROM = {
+				observation_outpost = { add_mission_progress = 0.2 }
+			}
+		}
+	}
+}
+
+# Quick Learning Primitives (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2014
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			OR = {
+				has_mission = vbp_tomb_technological_enlightenment
+				has_mission = vbp_hive_enlightenment_0
+				has_mission = vbp_hive_enlightenment_1
+				has_mission = vbp_hive_enlightenment_2
+			}
+			mission_progress > 0.2
+		}
+		owner = { has_trait = trait_quick_learners }
+		NOT = {
+			owner = {
+				has_relation_flag = {
+					who = root.observation_outpost_owner
+					flag = quick_learners_enlightenment
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2015 }
+		}
+	}
+}
+
+# Quick Learning Primitives
+country_event = {
+	id = vbp_uplifting_random.2015
+	title = "observation.2013.name"
+	desc = "observation.2015.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			observation_outpost = { add_mission_progress = 0.2 }
+			owner = {
+				set_relation_flag = {
+					who = ROOT
+					flag = quick_learners_enlightenment
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EXCELLENT"
+		tooltip = {
+			FROM = {
+				observation_outpost = { add_mission_progress = 0.2 }
+			}
+		}
+	}
+}
+
+# Slow Learning Primitives (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2016
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			OR = {
+				has_mission = vbp_tomb_technological_enlightenment
+				has_mission = vbp_hive_enlightenment_0
+				has_mission = vbp_hive_enlightenment_1
+				has_mission = vbp_hive_enlightenment_2
+			}
+			mission_progress > 0.2
+		}
+		owner = { has_trait = trait_slow_learners }
+		NOT = {
+			owner = {
+				has_relation_flag = {
+					who = root.observation_outpost_owner
+					flag = slow_learners_enlightenment
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2017 }
+		}
+	}
+}
+
+# Slow Learning Primitives
+country_event = {
+	id = vbp_uplifting_random.2017
+	title = "observation.2011.name"
+	desc = "observation.2017.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			observation_outpost = { add_mission_progress = -0.2 }
+			owner = {
+				set_relation_flag = {
+					who = ROOT
+					flag = slow_learners_enlightenment
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "UNFORTUNATE"
+		tooltip = {
+			FROM = {
+				observation_outpost = { add_mission_progress = -0.2 }
+			}
+		}
+	}
+}
+
+# Repugnant Primitives (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2018
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			OR = {
+				has_mission = vbp_tomb_technological_enlightenment
+				has_mission = vbp_machine_framework_upgrade
+				has_mission = vbp_negotiate_habitat_integration
+				has_mission = vbp_hive_enlightenment_0
+				has_mission = vbp_hive_enlightenment_1
+				has_mission = vbp_hive_enlightenment_2
+			}
+			mission_progress > 0.2
+		}
+		owner = {
+			OR = {
+				has_trait = trait_repugnant
+				has_trait = trait_robot_uncanny
+			}
+		}
+		observation_outpost_owner = {
+			NOT = {
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+		NOT = {
+			owner = {
+				has_relation_flag = {
+					who = root.observation_outpost_owner
+					flag = repugnant_enlightenment
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2019 }
+		}
+	}
+}
+
+# Repugnant Primitives
+country_event = {
+	id = vbp_uplifting_random.2019
+	title = "observation.2011.name"
+	desc = "observation.2019.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			observation_outpost = { add_mission_progress = -0.2 }
+			owner = {
+				set_relation_flag = {
+					who = ROOT
+					flag = repugnant_enlightenment
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "UNFORTUNATE"
+		tooltip = {
+			FROM = {
+				observation_outpost = { add_mission_progress = -0.2 }
+			}
+		}
+	}
+}
+
+# Natural Scientist Primitives (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2020
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			OR = {
+				has_mission = vbp_tomb_technological_enlightenment
+				has_mission = vbp_hive_enlightenment_0
+				has_mission = vbp_hive_enlightenment_1
+				has_mission = vbp_hive_enlightenment_2
+			}
+			mission_progress > 0.2
+		}
+		owner = {
+			OR = {
+				has_trait = trait_natural_engineers
+				has_trait = trait_natural_physicists
+				has_trait = trait_natural_sociologists
+			}
+		}
+		NOT = {
+			owner = {
+				has_relation_flag = {
+					who = root.observation_outpost_owner
+					flag = natural_scientist_enlightenment
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2021 }
+		}
+	}
+}
+
+# Natural Scientist Primitives
+country_event = {
+	id = vbp_uplifting_random.2021
+	title = "observation.2013.name"
+	desc = "observation.2021.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			observation_outpost = { add_mission_progress = 0.2 }
+			owner = {
+				set_relation_flag = {
+					who = ROOT
+					flag = natural_scientist_enlightenment
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EXCELLENT"
+		tooltip = {
+			FROM = {
+				observation_outpost = { add_mission_progress = 0.2 }
+			}
+		}
+	}
+}
+
+# Intelligent Primitives (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2022
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			OR = {
+				has_mission = vbp_tomb_technological_enlightenment
+				has_mission = vbp_hive_enlightenment_0
+				has_mission = vbp_hive_enlightenment_1
+				has_mission = vbp_hive_enlightenment_2
+			}
+			mission_progress > 0.2
+		}
+		owner = {
+			OR = { has_trait = trait_intelligent }
+		}
+		NOT = {
+			owner = {
+				has_relation_flag = {
+					who = root.observation_outpost_owner
+					flag = intelligent_enlightenment
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2023 }
+		}
+	}
+}
+
+# Intelligent Primitives
+country_event = {
+	id = vbp_uplifting_random.2023
+	title = "observation.2013.name"
+	desc = "observation.2023.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			observation_outpost = { add_mission_progress = 0.2 }
+			owner = {
+				set_relation_flag = {
+					who = ROOT
+					flag = intelligent_enlightenment
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EXCELLENT"
+		tooltip = {
+			FROM = {
+				observation_outpost = { add_mission_progress = 0.2 }
+			}
+		}
+	}
+}
+
+# Loses Xenophobe (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2030
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			has_mission = vbp_tomb_technological_enlightenment
+			mission_progress > 0.5
+		}
+		owner = {
+			OR = {
+				has_ethic = "ethic_xenophobe"
+				has_ethic = "ethic_fanatic_xenophobe"
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+
+		modifier = {
+			factor = 1.3
+			owner = { has_ethic = "ethic_fanatic_xenophobe" }
+		}
+		modifier = {
+			factor = 0.7
+			observation_outpost_owner = {
+				OR = {
+					has_ethic = "ethic_xenophile"
+					has_ethic = "ethic_fanatic_xenophile"
+					has_authority = auth_machine_intelligence
+					has_authority = auth_hive_mind
+				}
+			}
+		}
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2031 }
+		}
+	}
+}
+
+# Loses Xenophobe
+country_event = {
+	id = vbp_uplifting_random.2031
+	title = "observation.2031.name"
+	desc = "observation.2031.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			owner = {
+				shift_ethic = "ethic_xenophile"
+			}
+		}
+	}
+
+	option = {
+		name = "EXCELLENT"
+		tooltip = {
+			FROM = {
+				owner = {
+					shift_ethic = "ethic_xenophile"
+				}
+			}
+		}
+	}
+}
+
+# Gains Xenophile (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2032
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			has_mission = vbp_tomb_technological_enlightenment
+			mission_progress > 0.5
+		}
+		owner = {
+			NOT = {
+				OR = {
+					has_ethic = "ethic_xenophobe"
+					has_ethic = "ethic_fanatic_xenophobe"
+					has_ethic = "ethic_xenophile"
+					has_ethic = "ethic_fanatic_xenophile"
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+
+		modifier = {
+			factor = 1.4
+			observation_outpost_owner = { has_ethic = "ethic_fanatic_xenophobe" }
+		}
+		modifier = {
+			factor = 1.2
+			observation_outpost_owner = { has_ethic = "ethic_xenophobe" }
+		}
+		modifier = {
+			factor = 0.7
+			observation_outpost_owner = {
+				OR = {
+					has_ethic = "ethic_xenophile"
+					has_ethic = "ethic_fanatic_xenophile"
+					has_authority = auth_hive_mind
+				}
+			}
+		}
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2033 }
+		}
+	}
+}
+
+# Gains Xenophile
+country_event = {
+	id = vbp_uplifting_random.2033
+	title = "observation.2031.name"
+	desc = "observation.2033.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			owner = {
+				random_list = {
+					75 = { shift_ethic = "ethic_xenophile" }
+					25 = { shift_ethic = "ethic_fanatic_xenophile" }
+				}
+				every_owned_pop = { pop_change_ethic = "ethic_xenophile" }
+			}
+		}
+	}
+
+	option = {
+		name = "INTERESTING"
+		tooltip = {
+			FROM = {
+				owner = { shift_ethic = "ethic_xenophile" }
+			}
+		}
+	}
+}
+
+# Gains Pacifist (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2034
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			has_mission = vbp_tomb_technological_enlightenment
+			mission_progress > 0.5
+		}
+		owner = {
+			NOT = {
+				OR = {
+					has_ethic = "ethic_pacifist"
+					has_ethic = "ethic_fanatic_pacifist"
+				}
+			}
+		}
+		observation_outpost_owner = {
+			OR = {
+				has_ethic = "ethic_pacifist"
+				has_ethic = "ethic_fanatic_pacifist"
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+
+		modifier = {
+			factor = 2
+			owner = { has_ethic = "ethic_fanatic_militarist" }
+		}
+		modifier = {
+			factor = 1.6
+			owner = { has_ethic = "ethic_militarist" }
+		}
+		modifier = {
+			factor = 0.7
+			AND = {
+				observation_outpost_owner = { has_ethic = "ethic_fanatic_pacifist" }
+				owner = {
+					NOT = {
+						OR = {
+							has_ethic = "ethic_fanatic_militarist"
+							has_ethic = "ethic_militarist"
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2035 }
+		}
+	}
+}
+
+# Gains Pacifist
+country_event = {
+	id = vbp_uplifting_random.2035
+	title = "observation.2031.name"
+	desc = "observation.2035.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			owner = {
+				random_list = {
+					75 = { shift_ethic = "ethic_pacifist" }
+					25 = { shift_ethic = "ethic_fanatic_pacifist" }
+				}
+				every_owned_pop = { pop_change_ethic = "ethic_pacifist" }
+			}
+		}
+	}
+
+	option = {
+		name = "INTERESTING"
+		tooltip = {
+			FROM = {
+				owner = { shift_ethic = "ethic_pacifist" }
+			}
+		}
+	}
+}
+
+# Gains Militarist (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2036
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			has_mission = vbp_tomb_technological_enlightenment
+			mission_progress > 0.5
+		}
+		owner = {
+			NOT = {
+				OR = {
+					has_ethic = "ethic_militarist"
+					has_ethic = "ethic_fanatic_militarist"
+				}
+			}
+		}
+		observation_outpost_owner = {
+			OR = {
+				has_ethic = "ethic_militarist"
+				has_ethic = "ethic_fanatic_militarist"
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+
+		modifier = {
+			factor = 2
+			owner = { has_ethic = "ethic_fanatic_pacifist" }
+		}
+		modifier = {
+			factor = 1.6
+			owner = { has_ethic = "ethic_pacifist" }
+		}
+		modifier = {
+			factor = 0.7
+			AND = {
+				observation_outpost_owner = { has_ethic = "ethic_fanatic_militarist" }
+				owner = {
+					NOT = {
+						OR = {
+							has_ethic = "ethic_fanatic_pacifist"
+							has_ethic = "ethic_pacifist"
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2037 }
+		}
+	}
+}
+
+# Gains Militarist
+country_event = {
+	id = vbp_uplifting_random.2037
+	title = "observation.2031.name"
+	desc = "observation.2037.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			owner = {
+				random_list = {
+					75 = { shift_ethic = "ethic_militarist" }
+					25 = { shift_ethic = "ethic_fanatic_militarist" }
+				}
+				every_owned_pop = { pop_change_ethic = "ethic_militarist" }
+			}
+		}
+	}
+
+	option = {
+		name = "INTERESTING"
+		tooltip = {
+			FROM = {
+				owner = { shift_ethic = "ethic_militarist" }
+			}
+		}
+	}
+}
+
+# Gains Authoritarian (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2038
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			has_mission = vbp_tomb_technological_enlightenment
+			mission_progress > 0.5
+		}
+		owner = {
+			NOT = {
+				OR = {
+					has_ethic = "ethic_authoritarian"
+					has_ethic = "ethic_fanatic_authoritarian"
+				}
+			}
+		}
+		observation_outpost_owner = {
+			OR = {
+				has_ethic = "ethic_authoritarian"
+				has_ethic = "ethic_fanatic_authoritarian"
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+
+		modifier = {
+			factor = 2
+			owner = { has_ethic = "ethic_fanatic_egalitarian" }
+		}
+		modifier = {
+			factor = 1.6
+			owner = { has_ethic = "ethic_egalitarian" }
+		}
+		modifier = {
+			factor = 0.7
+			AND = {
+				observation_outpost_owner = { has_ethic = "ethic_fanatic_authoritarian" }
+				owner = {
+					NOT = {
+						OR = {
+							has_ethic = "ethic_fanatic_egalitarian"
+							has_ethic = "ethic_egalitarian"
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2039 }
+		}
+	}
+}
+
+# Gains Authoritarian
+country_event = {
+	id = vbp_uplifting_random.2039
+	title = "observation.2031.name"
+	desc = "observation.2039.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			owner = {
+				random_list = {
+					75 = { shift_ethic = "ethic_authoritarian" }
+					25 = { shift_ethic = "ethic_fanatic_authoritarian" }
+				}
+				every_owned_pop = { pop_change_ethic = "ethic_authoritarian" }
+				if = {
+					limit = {
+						OR = {
+							has_authority = auth_democratic
+							has_authority = auth_oligarchic
+						}
+					}
+					change_government = { authority = auth_imperial }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "INTERESTING"
+		tooltip = {
+			FROM = {
+				owner = { shift_ethic = "ethic_authoritarian" }
+			}
+		}
+	}
+}
+
+# Gains Egalitarian (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2040
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			has_mission = vbp_tomb_technological_enlightenment
+			mission_progress > 0.5
+		}
+		owner = {
+			NOT = {
+				OR = {
+					has_ethic = "ethic_egalitarian"
+					has_ethic = "ethic_fanatic_egalitarian"
+				}
+			}
+		}
+		observation_outpost_owner = {
+			OR = {
+				has_ethic = "ethic_egalitarian"
+				has_ethic = "ethic_fanatic_egalitarian"
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+
+		modifier = {
+			factor = 2
+			owner = { has_ethic = "ethic_fanatic_authoritarian" }
+		}
+		modifier = {
+			factor = 1.6
+			owner = { has_ethic = "ethic_authoritarian" }
+		}
+		modifier = {
+			factor = 0.7
+			AND = {
+				observation_outpost_owner = { has_ethic = "ethic_fanatic_egalitarian" }
+				owner = {
+					NOT = {
+						OR = {
+							has_ethic = "ethic_fanatic_authoritarian"
+							has_ethic = "ethic_authoritarian"
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2041 }
+		}
+	}
+}
+
+# Gains Egalitarian
+country_event = {
+	id = vbp_uplifting_random.2041
+	title = "observation.2031.name"
+	desc = "observation.2041.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			owner = {
+				random_list = {
+					75 = { shift_ethic = "ethic_egalitarian" }
+					25 = { shift_ethic = "ethic_fanatic_egalitarian" }
+				}
+				every_owned_pop = { pop_change_ethic = "ethic_egalitarian" }
+				if = {
+					limit = {
+						OR = {
+							has_authority = auth_dictatorial
+							has_authority = auth_imperial
+						}
+					}
+					change_government = { authority = auth_democratic }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "INTERESTING"
+		tooltip = {
+			FROM = {
+				owner = { shift_ethic = "ethic_egalitarian" }
+			}
+		}
+	}
+}
+
+# Gains Materialist (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2042
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			has_mission = vbp_tomb_technological_enlightenment
+			mission_progress > 0.5
+		}
+		owner = {
+			NOT = {
+				OR = {
+					has_ethic = "ethic_materialist"
+					has_ethic = "ethic_fanatic_materialist"
+				}
+			}
+		}
+		observation_outpost_owner = {
+			OR = {
+				has_ethic = "ethic_materialist"
+				has_ethic = "ethic_fanatic_materialist"
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+
+		modifier = {
+			factor = 2
+			owner = { has_ethic = "ethic_fanatic_spiritualist" }
+		}
+		modifier = {
+			factor = 1.6
+			owner = { has_ethic = "ethic_spiritualist" }
+		}
+		modifier = {
+			factor = 0.7
+			AND = {
+				observation_outpost_owner = {
+					OR = {
+						has_ethic = "ethic_fanatic_materialist"
+						has_authority = auth_machine_intelligence
+					}
+				}
+				owner = {
+					NOT = {
+						OR = {
+							has_ethic = "ethic_fanatic_spiritualist"
+							has_ethic = "ethic_spiritualist"
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2043 }
+		}
+	}
+}
+
+# Gains Materialist
+country_event = {
+	id = vbp_uplifting_random.2043
+	title = "observation.2031.name"
+	desc = "observation.2043.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			owner = {
+				random_list = {
+					75 = { shift_ethic = "ethic_materialist" }
+					25 = { shift_ethic = "ethic_fanatic_materialist" }
+				}
+				every_owned_pop = { pop_change_ethic = "ethic_materialist" }
+			}
+		}
+	}
+
+	option = {
+		name = "INTERESTING"
+		tooltip = {
+			FROM = {
+				owner = {
+					if = {
+						limit = { has_ethic = "ethic_materialist" }
+						shift_ethic = "ethic_materialist"
+					}
+					if = {
+						limit = { has_ethic = "ethic_fanatic_materialist" }
+						shift_ethic = "ethic_fanatic_materialist"
+					}
+				}
+			}
+		}
+	}
+}
+
+# Gains Spiritualist (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2044
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			has_mission = vbp_tomb_technological_enlightenment
+			mission_progress > 0.5
+		}
+		owner = {
+			NOT = {
+				OR = {
+					has_ethic = "ethic_spiritualist"
+					has_ethic = "ethic_fanatic_spiritualist"
+				}
+			}
+		}
+		observation_outpost_owner = {
+			OR = {
+				has_ethic = "ethic_spiritualist"
+				has_ethic = "ethic_fanatic_spiritualist"
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+
+		modifier = {
+			factor = 2
+			owner = { has_ethic = "ethic_fanatic_materialist" }
+		}
+		modifier = {
+			factor = 1.6
+			owner = { has_ethic = "ethic_materialist" }
+		}
+		modifier = {
+			factor = 0.7
+			AND = {
+				observation_outpost_owner = { has_ethic = "ethic_fanatic_spiritualist" }
+				owner = {
+					NOT = {
+						OR = {
+							has_ethic = "ethic_fanatic_materialist"
+							has_ethic = "ethic_materialist"
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2045 }
+		}
+	}
+}
+
+# Gains Spiritualist
+country_event = {
+	id = vbp_uplifting_random.2045
+	title = "observation.2031.name"
+	desc = "observation.2045.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			owner = {
+				random_list = {
+					75 = { shift_ethic = "ethic_spiritualist" }
+					25 = { shift_ethic = "ethic_fanatic_spiritualist" }
+				}
+				every_owned_pop = { pop_change_ethic = "ethic_spiritualist" }
+			}
+		}
+	}
+
+	option = {
+		name = "INTERESTING"
+		tooltip = {
+			FROM = {
+				owner = { shift_ethic = "ethic_spiritualist" }
+			}
+		}
+	}
+}
+
+# Pacifists enlightening Militarists (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2050
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			OR = {
+				has_mission = vbp_tomb_technological_enlightenment
+				has_mission = vbp_machine_framework_upgrade
+				# has_mission = vbp_negotiate_habitat_integration
+				has_mission = vbp_hive_enlightenment_0
+				has_mission = vbp_hive_enlightenment_1
+				has_mission = vbp_hive_enlightenment_2
+			}
+			mission_progress > 0.2
+		}
+		owner = {
+			OR = {
+				has_ethic = "ethic_militarist"
+				has_ethic = "ethic_fanatic_militarist"
+			}
+		}
+		observation_outpost_owner = {
+			OR = {
+				has_ethic = "ethic_pacifist"
+				has_ethic = "ethic_fanatic_pacifist"
+			}
+		}
+		NOT = {
+			owner = {
+				has_relation_flag = {
+					who = root.observation_outpost_owner
+					flag = pac_vs_mil_enlightenment
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+
+		modifier = {
+			factor = 0.8
+			owner = { has_ethic = "ethic_fanatic_militarist" }
+		}
+		modifier = {
+			factor = 0.6
+			AND = {
+				owner = { has_ethic = "ethic_fanatic_militarist" }
+				observation_outpost_owner = { has_ethic = "ethic_fanatic_pacifist" }
+			}
+		}
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2051 }
+		}
+	}
+}
+
+# Pacifists enlightening Militarists
+country_event = {
+	id = vbp_uplifting_random.2051
+	title = "observation.2011.name"
+	desc = "observation.2051.desc"
+	desc = {
+		exclusive_trigger = {
+			from.owner = { is_gestalt = yes }
+		}
+		text = observation.2051.desc.gestalt
+	}
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			observation_outpost = { add_mission_progress = -0.2 }
+			owner = {
+				set_relation_flag = {
+					who = ROOT
+					flag = pac_vs_mil_enlightenment
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "UNFORTUNATE"
+		tooltip = {
+			FROM = {
+				observation_outpost = { add_mission_progress = -0.2 }
+			}
+		}
+	}
+}
+
+# Militarists enlightening Pacifists (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2052
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			OR = {
+				has_mission = vbp_tomb_technological_enlightenment
+				has_mission = vbp_machine_framework_upgrade
+				# has_mission = vbp_negotiate_habitat_integration
+				has_mission = vbp_hive_enlightenment_0
+				has_mission = vbp_hive_enlightenment_1
+				has_mission = vbp_hive_enlightenment_2
+			}
+			mission_progress > 0.2
+		}
+		owner = {
+			OR = {
+				has_ethic = "ethic_pacifist"
+				has_ethic = "ethic_fanatic_pacifist"
+			}
+		}
+		observation_outpost_owner = {
+			OR = {
+				has_ethic = "ethic_militarist"
+				has_ethic = "ethic_fanatic_militarist"
+			}
+		}
+		NOT = {
+			owner = {
+				has_relation_flag = {
+					who = root.observation_outpost_owner
+					flag = mil_vs_pac_enlightenment
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+
+		modifier = {
+			factor = 0.8
+			owner = { has_ethic = "ethic_fanatic_pacifist" }
+		}
+		modifier = {
+			factor = 0.6
+			AND = {
+				owner = { has_ethic = "ethic_fanatic_pacifist" }
+				observation_outpost_owner = { has_ethic = "ethic_fanatic_militarist" }
+			}
+		}
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2053 }
+		}
+	}
+}
+
+# Pacifists enlightening Militarists
+country_event = {
+	id = vbp_uplifting_random.2053
+	title = "observation.2011.name"
+	desc = "observation.2053.desc"
+	desc = {
+		exclusive_trigger = {
+			from.owner = { is_gestalt = yes }
+		}
+		text = observation.2053.desc.gestalt
+	}
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			observation_outpost = { add_mission_progress = -0.2 }
+			owner = {
+				set_relation_flag = {
+					who = ROOT
+					flag = mil_vs_pac_enlightenment
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "UNFORTUNATE"
+		tooltip = {
+			FROM = {
+				observation_outpost = { add_mission_progress = -0.2 }
+			}
+		}
+	}
+}
+
+# Materialists enlightening Spiritualists (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2054
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			OR = {
+				has_mission = vbp_tomb_technological_enlightenment
+				has_mission = vbp_machine_framework_upgrade
+				# has_mission = vbp_negotiate_habitat_integration
+				has_mission = vbp_hive_enlightenment_0
+				has_mission = vbp_hive_enlightenment_1
+				has_mission = vbp_hive_enlightenment_2
+			}
+			mission_progress > 0.2
+		}
+		owner = {
+			OR = {
+				has_ethic = "ethic_spiritualist"
+				has_ethic = "ethic_fanatic_spiritualist"
+			}
+		}
+		observation_outpost_owner = {
+			OR = {
+				has_ethic = "ethic_materialist"
+				has_ethic = "ethic_fanatic_materialist"
+			}
+		}
+		NOT = {
+			owner = {
+				has_relation_flag = {
+					who = root.observation_outpost_owner
+					flag = mat_vs_spi_enlightenment
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+
+		modifier = {
+			factor = 0.8
+			owner = { has_ethic = "ethic_fanatic_spiritualist" }
+		}
+		modifier = {
+			factor = 0.6
+			AND = {
+				owner = { has_ethic = "ethic_fanatic_spiritualist" }
+				observation_outpost_owner = { has_ethic = "ethic_fanatic_materialist" }
+			}
+		}
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2055 }
+		}
+	}
+}
+
+# Materialists enlightening Spiritualists
+country_event = {
+	id = vbp_uplifting_random.2055
+	title = "observation.2011.name"
+	desc = "observation.2055.desc"
+	desc = {
+		exclusive_trigger = {
+			from.owner = { is_gestalt = yes }
+		}
+		text = observation.2055.desc.gestalt
+	}
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			observation_outpost = { add_mission_progress = -0.2 }
+			owner = {
+				set_relation_flag = {
+					who = ROOT
+					flag = mat_vs_spi_enlightenment
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "UNFORTUNATE"
+		tooltip = {
+			FROM = {
+				observation_outpost = { add_mission_progress = -0.2 }
+			}
+		}
+	}
+}
+
+# Spiritualist enlightening Materialist (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2056
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			OR = {
+				has_mission = vbp_tomb_technological_enlightenment
+				has_mission = vbp_machine_framework_upgrade
+				# has_mission = vbp_negotiate_habitat_integration
+				has_mission = vbp_hive_enlightenment_0
+				has_mission = vbp_hive_enlightenment_1
+				has_mission = vbp_hive_enlightenment_2
+			}
+			mission_progress > 0.2
+		}
+		owner = {
+			OR = {
+				has_ethic = "ethic_materialist"
+				has_ethic = "ethic_fanatic_materialist"
+			}
+		}
+		observation_outpost_owner = {
+			OR = {
+				has_ethic = "ethic_spiritualist"
+				has_ethic = "ethic_fanatic_spiritualist"
+			}
+		}
+		NOT = {
+			owner = {
+				has_relation_flag = {
+					who = root.observation_outpost_owner
+					flag = spi_vs_mat_enlightenment
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+
+		modifier = {
+			factor = 0.8
+			owner = { has_ethic = "ethic_fanatic_materialist" }
+		}
+		modifier = {
+			factor = 0.6
+			AND = {
+				owner = { has_ethic = "ethic_fanatic_materialist" }
+				observation_outpost_owner = { has_ethic = "ethic_fanatic_spiritualist" }
+			}
+		}
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2057 }
+		}
+	}
+}
+
+# Spiritualist enlightening Materialist
+country_event = {
+	id = vbp_uplifting_random.2057
+	title = "observation.2011.name"
+	desc = "observation.2057.desc"
+	desc = {
+		exclusive_trigger = {
+			from.owner = { is_gestalt = yes }
+		}
+		text = observation.2057.desc.gestalt
+	}
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			observation_outpost = { add_mission_progress = -0.2 }
+			owner = {
+				set_relation_flag = {
+					who = ROOT
+					flag = spi_vs_mat_enlightenment
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "UNFORTUNATE"
+		tooltip = {
+			FROM = {
+				observation_outpost = { add_mission_progress = -0.2 }
+			}
+		}
+	}
+}
+
+# Egalitarian enlightening Authoritarian (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2058
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			has_mission = vbp_tomb_technological_enlightenment
+			mission_progress > 0.2
+		}
+		owner = {
+			OR = {
+				has_ethic = "ethic_authoritarian"
+				has_ethic = "ethic_fanatic_authoritarian"
+			}
+		}
+		observation_outpost_owner = {
+			OR = {
+				has_ethic = "ethic_egalitarian"
+				has_ethic = "ethic_fanatic_egalitarian"
+			}
+		}
+		NOT = {
+			owner = {
+				has_relation_flag = {
+					who = root.observation_outpost_owner
+					flag = ind_vs_col_enlightenment
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+
+		modifier = {
+			factor = 0.8
+			owner = { has_ethic = "ethic_fanatic_authoritarian" }
+		}
+		modifier = {
+			factor = 0.6
+			AND = {
+				owner = { has_ethic = "ethic_fanatic_authoritarian" }
+				observation_outpost_owner = { has_ethic = "ethic_fanatic_egalitarian" }
+			}
+		}
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2059 }
+		}
+	}
+}
+
+# Egalitarian enlightening Authoritarian
+country_event = {
+	id = vbp_uplifting_random.2059
+	title = "observation.2011.name"
+	desc = "observation.2059.desc"
+	desc = {
+		exclusive_trigger = {
+			from.owner = { is_gestalt = yes }
+		}
+		text = observation.2059.desc.gestalt
+	}
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			observation_outpost = { add_mission_progress = -0.2 }
+			owner = {
+				set_relation_flag = {
+					who = ROOT
+					flag = ind_vs_col_enlightenment
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "UNFORTUNATE"
+		tooltip = {
+			FROM = {
+				observation_outpost = { add_mission_progress = -0.2 }
+			}
+		}
+	}
+}
+
+# Authoritarian enlightening Egalitarian (HIDDEN)
+planet_event = {
+	id = vbp_uplifting_random.2060
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = {
+			has_mission = vbp_tomb_technological_enlightenment
+			mission_progress > 0.2
+		}
+		owner = {
+			OR = {
+				has_ethic = "ethic_egalitarian"
+				has_ethic = "ethic_fanatic_egalitarian"
+			}
+		}
+		observation_outpost_owner = {
+			OR = {
+				has_ethic = "ethic_authoritarian"
+				has_ethic = "ethic_fanatic_authoritarian"
+			}
+		}
+		NOT = {
+			owner = {
+				has_relation_flag = {
+					who = root.observation_outpost_owner
+					flag = col_vs_ind_enlightenment
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720 # NEEDS TWEAK
+
+		modifier = {
+			factor = 0.8
+			owner = { has_ethic = "ethic_fanatic_egalitarian" }
+		}
+		modifier = {
+			factor = 0.6
+			AND = {
+				owner = { has_ethic = "ethic_fanatic_egalitarian" }
+				observation_outpost_owner = { has_ethic = "ethic_fanatic_authoritarian" }
+			}
+		}
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = vbp_uplifting_random.2061 }
+		}
+	}
+}
+
+# Authoritarian enlightening Egalitarian
+country_event = {
+	id = vbp_uplifting_random.2061
+	title = "observation.2011.name"
+	desc = "observation.2061.desc"
+	desc = {
+		exclusive_trigger = {
+			from.owner = { is_gestalt = yes }
+		}
+		text = observation.2061.desc.gestalt
+	}
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			observation_outpost = { add_mission_progress = -0.2 }
+			owner = {
+				set_relation_flag = {
+					who = ROOT
+					flag = col_vs_ind_enlightenment
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "UNFORTUNATE"
+		tooltip = {
+			FROM = {
+				observation_outpost = { add_mission_progress = -0.2 }
+			}
+		}
+	}
+}
