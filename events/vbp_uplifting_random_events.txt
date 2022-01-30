@@ -20,10 +20,7 @@ planet_event = {
 			mission_progress > 0.2
 		}
 		owner = {
-			OR = {
-				has_ethic = "ethic_xenophobe"
-				has_ethic = "ethic_fanatic_xenophobe"
-			}
+			is_xenophobe = yes
 		}
 		NOT = {
 			owner = {
@@ -108,10 +105,7 @@ planet_event = {
 			mission_progress > 0.2
 		}
 		owner = {
-			OR = {
-				has_ethic = "ethic_xenophile"
-				has_ethic = "ethic_fanatic_xenophile"
-			}
+			is_xenophile = yes
 		}
 		NOT = {
 			owner = {
@@ -565,10 +559,7 @@ planet_event = {
 			mission_progress > 0.5
 		}
 		owner = {
-			OR = {
-				has_ethic = "ethic_xenophobe"
-				has_ethic = "ethic_fanatic_xenophobe"
-			}
+			is_xenophobe = yes
 		}
 	}
 
@@ -583,8 +574,7 @@ planet_event = {
 			factor = 0.7
 			observation_outpost_owner = {
 				OR = {
-					has_ethic = "ethic_xenophile"
-					has_ethic = "ethic_fanatic_xenophile"
+					is_xenophile = yes
 					has_authority = auth_machine_intelligence
 					has_authority = auth_hive_mind
 				}
@@ -642,14 +632,10 @@ planet_event = {
 			mission_progress > 0.5
 		}
 		owner = {
-			NOT = {
-				OR = {
-					has_ethic = "ethic_xenophobe"
-					has_ethic = "ethic_fanatic_xenophobe"
-					has_ethic = "ethic_xenophile"
-					has_ethic = "ethic_fanatic_xenophile"
-				}
-			}
+			NOR = {
+					is_xenophobe = yes
+					is_xenophile = yes
+}
 		}
 	}
 
@@ -668,8 +654,7 @@ planet_event = {
 			factor = 0.7
 			observation_outpost_owner = {
 				OR = {
-					has_ethic = "ethic_xenophile"
-					has_ethic = "ethic_fanatic_xenophile"
+					is_xenophile = yes
 					has_authority = auth_hive_mind
 				}
 			}
@@ -729,17 +714,11 @@ planet_event = {
 		}
 		owner = {
 			NOT = {
-				OR = {
-					has_ethic = "ethic_pacifist"
-					has_ethic = "ethic_fanatic_pacifist"
-				}
+				is_pacifist = yes
 			}
 		}
 		observation_outpost_owner = {
-			OR = {
-				has_ethic = "ethic_pacifist"
-				has_ethic = "ethic_fanatic_pacifist"
-			}
+			is_pacifist = yes
 		}
 	}
 
@@ -759,12 +738,10 @@ planet_event = {
 			AND = {
 				observation_outpost_owner = { has_ethic = "ethic_fanatic_pacifist" }
 				owner = {
-					NOT = {
-						OR = {
+					NOR = {
 							has_ethic = "ethic_fanatic_militarist"
 							has_ethic = "ethic_militarist"
-						}
-					}
+}
 				}
 			}
 		}
@@ -823,17 +800,11 @@ planet_event = {
 		}
 		owner = {
 			NOT = {
-				OR = {
-					has_ethic = "ethic_militarist"
-					has_ethic = "ethic_fanatic_militarist"
-				}
+				is_militarist = yes
 			}
 		}
 		observation_outpost_owner = {
-			OR = {
-				has_ethic = "ethic_militarist"
-				has_ethic = "ethic_fanatic_militarist"
-			}
+			is_militarist = yes
 		}
 	}
 
@@ -853,12 +824,10 @@ planet_event = {
 			AND = {
 				observation_outpost_owner = { has_ethic = "ethic_fanatic_militarist" }
 				owner = {
-					NOT = {
-						OR = {
+					NOR = {
 							has_ethic = "ethic_fanatic_pacifist"
 							has_ethic = "ethic_pacifist"
-						}
-					}
+}
 				}
 			}
 		}
@@ -917,17 +886,11 @@ planet_event = {
 		}
 		owner = {
 			NOT = {
-				OR = {
-					has_ethic = "ethic_authoritarian"
-					has_ethic = "ethic_fanatic_authoritarian"
-				}
+				is_authoritarian = yes
 			}
 		}
 		observation_outpost_owner = {
-			OR = {
-				has_ethic = "ethic_authoritarian"
-				has_ethic = "ethic_fanatic_authoritarian"
-			}
+			is_authoritarian = yes
 		}
 	}
 
@@ -947,12 +910,10 @@ planet_event = {
 			AND = {
 				observation_outpost_owner = { has_ethic = "ethic_fanatic_authoritarian" }
 				owner = {
-					NOT = {
-						OR = {
+					NOR = {
 							has_ethic = "ethic_fanatic_egalitarian"
 							has_ethic = "ethic_egalitarian"
-						}
-					}
+}
 				}
 			}
 		}
@@ -1020,17 +981,11 @@ planet_event = {
 		}
 		owner = {
 			NOT = {
-				OR = {
-					has_ethic = "ethic_egalitarian"
-					has_ethic = "ethic_fanatic_egalitarian"
-				}
+				is_egalitarian = yes
 			}
 		}
 		observation_outpost_owner = {
-			OR = {
-				has_ethic = "ethic_egalitarian"
-				has_ethic = "ethic_fanatic_egalitarian"
-			}
+			is_egalitarian = yes
 		}
 	}
 
@@ -1050,12 +1005,10 @@ planet_event = {
 			AND = {
 				observation_outpost_owner = { has_ethic = "ethic_fanatic_egalitarian" }
 				owner = {
-					NOT = {
-						OR = {
+					NOR = {
 							has_ethic = "ethic_fanatic_authoritarian"
 							has_ethic = "ethic_authoritarian"
-						}
-					}
+}
 				}
 			}
 		}
@@ -1123,16 +1076,12 @@ planet_event = {
 		}
 		owner = {
 			NOT = {
-				OR = {
-					has_ethic = "ethic_materialist"
-					has_ethic = "ethic_fanatic_materialist"
-				}
+				is_materialist = yes
 			}
 		}
 		observation_outpost_owner = {
 			OR = {
-				has_ethic = "ethic_materialist"
-				has_ethic = "ethic_fanatic_materialist"
+				is_materialist = yes
 				has_authority = auth_machine_intelligence
 			}
 		}
@@ -1159,12 +1108,10 @@ planet_event = {
 					}
 				}
 				owner = {
-					NOT = {
-						OR = {
+					NOR = {
 							has_ethic = "ethic_fanatic_spiritualist"
 							has_ethic = "ethic_spiritualist"
-						}
-					}
+}
 				}
 			}
 		}
@@ -1232,17 +1179,11 @@ planet_event = {
 		}
 		owner = {
 			NOT = {
-				OR = {
-					has_ethic = "ethic_spiritualist"
-					has_ethic = "ethic_fanatic_spiritualist"
-				}
+				is_spiritualist = yes
 			}
 		}
 		observation_outpost_owner = {
-			OR = {
-				has_ethic = "ethic_spiritualist"
-				has_ethic = "ethic_fanatic_spiritualist"
-			}
+			is_spiritualist = yes
 		}
 	}
 
@@ -1262,12 +1203,10 @@ planet_event = {
 			AND = {
 				observation_outpost_owner = { has_ethic = "ethic_fanatic_spiritualist" }
 				owner = {
-					NOT = {
-						OR = {
+					NOR = {
 							has_ethic = "ethic_fanatic_materialist"
 							has_ethic = "ethic_materialist"
-						}
-					}
+}
 				}
 			}
 		}
@@ -1332,16 +1271,10 @@ planet_event = {
 			mission_progress > 0.2
 		}
 		owner = {
-			OR = {
-				has_ethic = "ethic_militarist"
-				has_ethic = "ethic_fanatic_militarist"
-			}
+			is_militarist = yes
 		}
 		observation_outpost_owner = {
-			OR = {
-				has_ethic = "ethic_pacifist"
-				has_ethic = "ethic_fanatic_pacifist"
-			}
+			is_pacifist = yes
 		}
 		NOT = {
 			owner = {
@@ -1434,16 +1367,10 @@ planet_event = {
 			mission_progress > 0.2
 		}
 		owner = {
-			OR = {
-				has_ethic = "ethic_pacifist"
-				has_ethic = "ethic_fanatic_pacifist"
-			}
+			is_pacifist = yes
 		}
 		observation_outpost_owner = {
-			OR = {
-				has_ethic = "ethic_militarist"
-				has_ethic = "ethic_fanatic_militarist"
-			}
+			is_militarist = yes
 		}
 		NOT = {
 			owner = {
@@ -1536,16 +1463,10 @@ planet_event = {
 			mission_progress > 0.2
 		}
 		owner = {
-			OR = {
-				has_ethic = "ethic_spiritualist"
-				has_ethic = "ethic_fanatic_spiritualist"
-			}
+			is_spiritualist = yes
 		}
 		observation_outpost_owner = {
-			OR = {
-				has_ethic = "ethic_materialist"
-				has_ethic = "ethic_fanatic_materialist"
-			}
+			is_materialist = yes
 		}
 		NOT = {
 			owner = {
@@ -1638,16 +1559,10 @@ planet_event = {
 			mission_progress > 0.2
 		}
 		owner = {
-			OR = {
-				has_ethic = "ethic_materialist"
-				has_ethic = "ethic_fanatic_materialist"
-			}
+			is_materialist = yes
 		}
 		observation_outpost_owner = {
-			OR = {
-				has_ethic = "ethic_spiritualist"
-				has_ethic = "ethic_fanatic_spiritualist"
-			}
+			is_spiritualist = yes
 		}
 		NOT = {
 			owner = {
@@ -1733,16 +1648,10 @@ planet_event = {
 			mission_progress > 0.2
 		}
 		owner = {
-			OR = {
-				has_ethic = "ethic_authoritarian"
-				has_ethic = "ethic_fanatic_authoritarian"
-			}
+			is_authoritarian = yes
 		}
 		observation_outpost_owner = {
-			OR = {
-				has_ethic = "ethic_egalitarian"
-				has_ethic = "ethic_fanatic_egalitarian"
-			}
+			is_egalitarian = yes
 		}
 		NOT = {
 			owner = {
@@ -1828,16 +1737,10 @@ planet_event = {
 			mission_progress > 0.2
 		}
 		owner = {
-			OR = {
-				has_ethic = "ethic_egalitarian"
-				has_ethic = "ethic_fanatic_egalitarian"
-			}
+			is_egalitarian = yes
 		}
 		observation_outpost_owner = {
-			OR = {
-				has_ethic = "ethic_authoritarian"
-				has_ethic = "ethic_fanatic_authoritarian"
-			}
+			is_authoritarian = yes
 		}
 		NOT = {
 			owner = {

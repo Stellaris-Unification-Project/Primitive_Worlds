@@ -371,7 +371,7 @@ country_event = {
 					if = {
 						limit = {
 							starbase = {
-								NOT = { owner = { is_same_value = root } }
+								NOT = { is_owned_by = root }
 							}								
 						}	
 						starbase = {
@@ -984,7 +984,7 @@ country_event = {
 		# name = NOTIME
 		# custom_tooltip = vbp_machine.321.b.tooltip
 		
-		# add_influence = 30
+		# add_resource = { influence = 30 }
 	# }
 
 # }
@@ -1220,8 +1220,7 @@ country_event = {
 				NOT = { has_policy_flag = ai_full_rights }
 				OR = {
 					has_policy_flag = robots_outlawed
-					has_ethic = ethic_spiritualist
-					has_ethic = ethic_fanatic_spiritualist
+					is_spiritualist = yes
 				}
 			}
 			add_opinion_modifier = { who = root modifier = vbp_machine_destroyed_positive }
@@ -1275,8 +1274,10 @@ country_event = {
 		}
 		IF = {
 			limit = {
-				NOT = { has_authority = auth_machine_intelligence }
-				NOT = { has_technology = tech_synthetic_workers }
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_technology = tech_synthetic_workers
+				}
 			}
 			country_event = { id = vbp_machine.502 }
 			break = yes
@@ -1341,7 +1342,7 @@ country_event = {
 			solar_system = {
 				if = {
 					limit = {
-						starbase = { owner = { is_same_value = root } }
+						starbase = { is_owned_by = root }
 					}
 					starbase = {
 						set_owner = event_target:robot_country
@@ -1350,7 +1351,7 @@ country_event = {
 				every_system_planet = {
 					limit = {
 						exists = owner
-						owner = { is_same_value = root }
+						is_owned_by = root
 					}
 					set_owner = event_target:robot_country			
 				}
@@ -1452,7 +1453,7 @@ country_event = {
 			solar_system = {
 				if = {
 					limit = {
-						starbase = { owner = { is_same_value = root } }
+						starbase = { is_owned_by = root }
 					}
 					starbase = {
 						set_owner = event_target:robot_country
@@ -1461,7 +1462,7 @@ country_event = {
 				every_system_planet = {
 					limit = {
 						exists = owner
-						owner = { is_same_value = root }
+						is_owned_by = root
 					}
 					set_owner = event_target:robot_country			
 				}
@@ -1667,14 +1668,7 @@ country_event = {
 						}
 						traits = this
 						
-						pops_can_be_colonizers = yes
-						pops_can_migrate = yes
-						pops_can_reproduce = no
-						pops_can_join_factions = yes
 						pop_maintenance = 1
-						can_generate_leaders = yes
-						pops_can_be_slaves = yes
-						pops_have_happiness = yes
 					}
 					modify_species = {
 						species = last_created_species
@@ -1828,7 +1822,7 @@ country_event = {
 				solar_system = {
 					if = {
 						limit = {
-							starbase = { owner = { is_same_value = root } }
+							starbase = { is_owned_by = root }
 						}
 						starbase = {
 							set_owner = event_target:robot_country
@@ -1837,7 +1831,7 @@ country_event = {
 					every_system_planet = {
 						limit = {
 							exists = owner
-							owner = { is_same_value = root }
+							is_owned_by = root
 						}
 						set_owner = event_target:robot_country			
 					}
@@ -2181,8 +2175,7 @@ country_event = {
 				NOT = { has_policy_flag = ai_full_rights }
 				OR = {
 					has_policy_flag = robots_outlawed
-					has_ethic = ethic_spiritualist
-					has_ethic = ethic_fanatic_spiritualist
+					is_spiritualist = yes
 				}
 			}
 			add_opinion_modifier = { who = root modifier = vbp_machine_conquered_positive }
@@ -2298,8 +2291,7 @@ country_event = {
 				NOT = { has_policy_flag = ai_full_rights }
 				OR = {
 					has_policy_flag = robots_outlawed
-					has_ethic = ethic_spiritualist
-					has_ethic = ethic_fanatic_spiritualist
+					is_spiritualist = yes
 				}
 			}
 			add_opinion_modifier = { who = root modifier = vbp_machine_destroyed_positive }

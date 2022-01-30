@@ -78,11 +78,7 @@ vbp_hive_enlightenment_0 = {
 			owner = { has_country_flag = vbp_hive_id_stage is_country_type = vbp_hive }
 			
 		}
-		NOR = { 
-			has_valid_civic = civic_machine_terminator
-			has_valid_civic = civic_fanatic_purifiers
-			has_valid_civic = civic_hive_devouring_swarm
-		}
+		is_homicidal = no
 	}
 
 	valid = {
@@ -91,11 +87,7 @@ vbp_hive_enlightenment_0 = {
 			fail_text = vbp_hive_TOO_DUMB
 			always = yes
 		}
-		NOR = {
-			has_valid_civic = civic_fanatic_purifiers
-			has_valid_civic = civic_hive_devouring_swarm
-			has_valid_civic = civic_machine_terminator
-		}
+		is_homicidal = no
 	}
 	
 	ai_weight = {
@@ -124,20 +116,12 @@ vbp_hive_enlightenment_1 = {
 			owner = { has_country_flag = vbp_hive_ego_stage is_country_type = vbp_hive }
 			
 		}
-		NOR = { 
-			has_valid_civic = civic_machine_terminator
-			has_valid_civic = civic_fanatic_purifiers
-			has_valid_civic = civic_hive_devouring_swarm
-		}
+		is_homicidal = no
 	}
 
 	valid = {
 		has_policy_flag = enlightenment_allowed
-		NOR = {
-			has_valid_civic = civic_fanatic_purifiers
-			has_valid_civic = civic_hive_devouring_swarm
-			has_valid_civic = civic_machine_terminator
-		}
+		is_homicidal = no
 	}
 	
 	ai_weight = {
@@ -174,20 +158,12 @@ vbp_hive_enlightenment_2 = {
 			owner = { has_country_flag = vbp_hive_superego_stage is_country_type = vbp_hive }
 			
 		}
-		NOR = { 
-			has_valid_civic = civic_machine_terminator
-			has_valid_civic = civic_fanatic_purifiers
-			has_valid_civic = civic_hive_devouring_swarm
-		}
+		is_homicidal = no
 	}
 
 	valid = {
 		has_policy_flag = enlightenment_allowed
-		NOR = {
-			has_valid_civic = civic_fanatic_purifiers
-			has_valid_civic = civic_hive_devouring_swarm
-			has_valid_civic = civic_machine_terminator
-		}
+		is_homicidal = no
 	}
 	
 	ai_weight = {
@@ -288,8 +264,10 @@ vbp_hive_break_apart_0 = {
 	completion_event = vbp_hive.420
 
 	potential = {
-		NOT = { has_valid_civic = civic_inwards_perfection }
-		NOT = { has_authority = auth_hive_mind }
+		NOR = {
+			has_valid_civic = civic_inwards_perfection
+			has_authority = auth_hive_mind
+		}
 		NOT = { has_ascension_perk = ap_evolutionary_mastery }
 		FROM = {
 			exists = owner
@@ -303,11 +281,7 @@ vbp_hive_break_apart_0 = {
 			has_policy_flag = interference_active
 			has_policy_flag = interference_full
 		}
-		NOR = {
-			has_valid_civic = civic_fanatic_purifiers
-			has_valid_civic = civic_hive_devouring_swarm
-			has_valid_civic = civic_machine_terminator
-		}
+		is_homicidal = no
 	}
 	
 	ai_weight = {
@@ -355,8 +329,10 @@ vbp_hive_break_apart_1 = {
 	completion_event = vbp_hive.430
 
 	potential = {
-		NOT = { has_valid_civic = civic_inwards_perfection }
-		NOT = { has_authority = auth_hive_mind }
+		NOR = {
+			has_valid_civic = civic_inwards_perfection
+			has_authority = auth_hive_mind
+		}
 		has_ascension_perk = ap_evolutionary_mastery
 		FROM = {
 			exists = owner
@@ -370,11 +346,7 @@ vbp_hive_break_apart_1 = {
 			has_policy_flag = interference_active
 			has_policy_flag = interference_full
 		}
-		NOR = {
-			has_valid_civic = civic_fanatic_purifiers
-			has_valid_civic = civic_hive_devouring_swarm
-			has_valid_civic = civic_machine_terminator
-		}
+		is_homicidal = no
 	}
 	
 	ai_weight = {

@@ -13,7 +13,7 @@ namespace = vbp_tomb
 # 	}
 	
 # 	immediate = {
-# 		random_planet = {
+# 		random_system_planet = {
 # 			random_list = {
 # 				50 = { planet_event = { id = vbp_tomb.2 days = 3 } }
 # 				50 = { }
@@ -182,8 +182,7 @@ country_event = {
 		
 		trigger = {
 			NOR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
+				is_xenophobe = yes
 				has_civic = civic_hive_devouring_swarm
 				has_civic = civic_machine_terminator
 			}
@@ -195,8 +194,7 @@ country_event = {
 		
 		trigger = {
 			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
+				is_xenophobe = yes
 				has_civic = civic_hive_devouring_swarm
 				has_civic = civic_machine_terminator
 			}
@@ -307,7 +305,7 @@ country_event = {
 			solar_system = {
 				if = {
 					limit = {
-						starbase = { owner = { is_same_value = root } }
+						starbase = { is_owned_by = root }
 					}
 					starbase = {
 						set_owner = event_target:primitive_country
@@ -316,7 +314,7 @@ country_event = {
 				every_system_planet = {
 					limit = {
 						exists = owner
-						owner = { is_same_value = root }
+						is_owned_by = root
 					}
 					set_owner = event_target:primitive_country			
 				}

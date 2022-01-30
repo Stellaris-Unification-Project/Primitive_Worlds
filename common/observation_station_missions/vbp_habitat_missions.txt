@@ -32,11 +32,7 @@ vbp_negotiate_habitat_integration = {
 				owner = { NOT = { has_ethic = ethic_fanatic_xenophobe } }
 			}		
 		}
-		NOR = {
-			has_valid_civic = civic_fanatic_purifiers
-			has_valid_civic = civic_hive_devouring_swarm
-			has_valid_civic = civic_machine_terminator
-        }
+		is_homicidal = no
         custom_tooltip = {
             fail_text = VBP_CANT_LIVE
             OR = {
